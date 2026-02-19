@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AlpineAntiCheat Staff Panel</title>
+</head>
+<body>
+
+<h1>Alerts</h1>
+
+<div id="alerts"></div>
+
+<script>
+
+async function loadAlerts(){
+
+let res = await fetch("/alerts");
+
+let data = await res.json();
+
+document.getElementById("alerts").innerHTML =
+JSON.stringify(data, null, 2);
+
+}
+
+setInterval(loadAlerts, 2000);
+
+</script>
+
+</body>
+</html>
